@@ -23,4 +23,4 @@ end
   include_recipe r
 end
 
-include_recipe 'tilestache::py_install'
+include_recipe 'tilestache::install'
