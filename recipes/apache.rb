@@ -1,4 +1,4 @@
-# reverse proxy
+# reverse proxy, if defined
 
 case node[:tilestache][:apache_proxy]
 when 'true'

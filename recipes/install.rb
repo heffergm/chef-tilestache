@@ -15,24 +15,11 @@ python_pip 'tilestache' do
   version "#{node[:tilestache][:version]}"
 end
 
-#bash 'tilestache_setup_py' do
-#  action :nothing
-#  user 'root'
-#  group 'root'
-#  cwd "#{node[:tilestache][:install_path]}"
-#  code <<-EOH
-#    #{node[:python][:binary]} setup.py install
-#  EOH
-#end
-
-#git "#{node[:tilestache][:install_path]}" do
-#  action :sync
-#  repository "#{node[:tilestache][:repository]}"
-#  revision   "#{node[:tilestache][:revision]}"
-#  user       "#{node[:tilestache][:user]}"
-#  group      "#{node[:tilestache][:group]}"
-#  notifies :restart, 'service[tilestache]', :delayed
-#  notifies :run, 'bash[tilestache_setup_py]', :immediately
-#end
+template "#{node[:tilestach][:cfg_path]}/tilestache.cfg" do
+  source 'tilestache.cfg.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end
 
 include_recipe 'tilestache::apache'
