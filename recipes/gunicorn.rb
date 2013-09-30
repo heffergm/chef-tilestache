@@ -3,6 +3,10 @@ python_pip 'gunicorn' do
   version "#{node[:tilestache][:gunicorn][:version]}"
 end
 
+python_pip "#{node[:tilestache][:gunicorn][:worker_class]}" do
+  action :install
+end
+
 gunicorn_config "#{node[:tilestache][:gunicorn][:cfgbasedir]}/gunicorn.cfg" do
   action :create
   notifies :restart, 'service[tilestache]', :delayed

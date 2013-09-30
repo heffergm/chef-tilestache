@@ -1,18 +1,18 @@
-Abacus Chef Cookbook
+Tilestache Chef Cookbook
 ===================
 
 Description
 -----------
-Installs abacus, provides a vagrant environment for iterative testing
-* website: https://github.rackspace.com/gran6556/chef-abacus.git
+Installs tilestache, provides a vagrant environment for iterative testing
+* website: https://github.rackspace.com/gran6556/chef-tilestache.git
 
 Usage
 -----
-    include_recipe 'abacus'
+    include_recipe 'tilestache'
 
-Simply include abacus in your run list, or call it from another recipe.
+Simply include tilestache in your run list, or call it from another recipe.
 
-The chef-abacus cookbook is essentially a wrapper around all the dependencies required to get abacus running.
+The chef-tilestache cookbook is essentially a wrapper around all the dependencies required to get tilestache running.
 
 Supported Platforms
 -------------------
@@ -20,7 +20,7 @@ Tested on CentOS6.{3,4} and Ubuntu12.04LTS. You'll likely be able to get away wi
 
 Attributes
 ----------
-### abacus
+### tilestache
 
 #### install method
 The default method, 'py', will poll git for updates, pull any, re-run setup.py  and bounce services.
@@ -35,34 +35,34 @@ Configures Apaache on :80 as a reverse proxy
 * default: false
 
 #### filehandle_limit
-Ulimit setting for open files permitted to the user configured to run abacus (default: 10240)
+Ulimit setting for open files permitted to the user configured to run tilestache (default: 10240)
 
 #### install_path
-Location to clone the abacus git repository to
-* default: /opt/abacus
+Location to clone the tilestache git repository to
+* default: /opt/tilestache
 
 #### repository
-Location of the abacus git repository
-* default: git//github.rackspace.com/common/abacus.git
+Location of the tilestache git repository
+* default: git//github.rackspace.com/common/tilestache.git
 
 #### user
-User to run abacus as
-* default: abacus
+User to run tilestache as
+* default: tilestache
 
 #### user_shell
-Shell for your abacus user
+Shell for your tilestache user
 * default: /bin/false
 
 #### user_keygen
-Whether to generate ssh keys for your abacus user
+Whether to generate ssh keys for your tilestache user
 * default: false
 
 #### group
-Group to run abacus as
-* default: abacus
+Group to run tilestache as
+* default: tilestache
 
 
-### abacus.gunicorn
+### tilestache.gunicorn
 
 #### version
 Version of gunicorn to install
@@ -81,11 +81,11 @@ Max number of requests a worker will serve before restarting
 
 #### piddir
 Location of the gunicorn pid file
-* default: /var/run/abacus/gunicorn.pid
+* default: /var/run/tilestache/gunicorn.pid
 
 #### logdir
 Location of the gunicorn log directory
-* default: /var/log/abacus
+* default: /var/log/tilestache
 
 #### logfile
 Name of the gunicorn log file
@@ -113,23 +113,23 @@ Number of workers to spawn
 * default: node.cpu.total
 
 
-### abacus.repo
+### tilestache.repo
 
 #### use_custom_repo
-Should we set up a custom repository to find the Abacus RPM when used with install_method = package?
+Should we set up a custom repository to find the Tilestache RPM when used with install_method = package?
 * default: false
 
 #### shortname
 Name of the repo contained in [], also use for the name of the repo file itself
-* default: abacus_repo
+* default: tilestache_repo
 
 #### longname
 Name of the repo used in the repo file
-* default: 'Abacus Repo'
+* default: 'Tilestache Repo'
 
 #### baseurl
-Url for the abacus repository
-* default: http://puppet-n01.staging.us.ccp.rackspace.net/repo_abacus/
+Url for the tilestache repository
+* default: http://puppet-n01.staging.us.ccp.rackspace.net/repo_tilestache/
 
 #### gpgcheck
 True or false
@@ -154,7 +154,7 @@ Vagrant Environment
 
 Overview
 --------
-Want to work on Abacus? Want a sandboxed environment to do it in?
+Want to work on Tilestache? Want a sandboxed environment to do it in?
 
 Installation
 ------------
@@ -166,27 +166,27 @@ Installation
 
 #### What did that just do?
 * installed berkshelf, installed our cookbook dependencies, and booted a virtualbox machine
-* access the running abacus instance: via http://localhost:8000
+* access the running tilestache instance: via http://localhost:8000
 
 #### Multi-box support
 * please note that there is currently support for both ubuntu and centos, and that you need to append the correct box name to any commands
 
-#### Where does the abacus cookbook get pulled from
-* presently git@github.rackspace.com:gran6556/abacus-chef.git
+#### Where does the tilestache cookbook get pulled from
+* presently 
 
-#### How about the abacus installation itself?
-* if you take a gander at the cookbook, you'll see that the the default repository is git@github.rackspace.com:common/abacus.git
+#### How about the tilestache installation itself?
+* if you take a gander at the cookbook, you'll see that the the default repository is git@github.rackspace.com:common/tilestache.git
 * the branch is set depending on the chef environment, if any, defaulting to master in the event there is none
 
 #### How does this help me?
-* iteration: hack hack hack on your abacus setup then run `vagrant provision`, which will re-pull the repository and restart abacus
+* iteration: hack hack hack on your tilestache setup then run `vagrant provision`, which will re-pull the repository and restart tilestache
 
 #### I don't like Vagrant
 * well then sir, provision a CentOS6 system with the provider of your choice, and then bootstrap with chef-solo:
-    `knife solo bootstrap root@${host} -r 'recipe[abacus]'`
+    `knife solo bootstrap root@${host} -r 'recipe[tilestache]'`
 * and re-cook with the following:
-    `knife solo cook root@${host} -r 'recipe[abacus]'`
-* alternatively, you can add the abacus cookbook to your chef server and wrap it as you see fit
+    `knife solo cook root@${host} -r 'recipe[tilestache]'`
+* alternatively, you can add the tilestache cookbook to your chef server and wrap it as you see fit
 
 Provisos
 --------
@@ -196,7 +196,7 @@ Provisos
 Specs
 -----
 * `gem install chefspec`
-* chefspec needs access to all cookbooks managed by berkshelf, so from chef-abacus/, `rspec spec/spec_helper.rb`
+* chefspec needs access to all cookbooks managed by berkshelf, so from chef-tilestache/, `rspec spec/spec_helper.rb`
 * `rspec spec/some_spec.rb` to run tests
 
 Contributing
