@@ -8,8 +8,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "tilestache-chef-berkshelf"
 
-  config.vm.box = "Ubuntu12.04LTS-Chef"
-  config.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04.2-i386-chef-11-omnibus.box"
+  config.vm.box = "ubuntu-12.04-omnibus-chef"
+  config.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04-omnibus-chef.box"
 
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as

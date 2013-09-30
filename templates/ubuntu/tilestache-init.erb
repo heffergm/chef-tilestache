@@ -8,7 +8,7 @@ GROUP="<%= node[:tilestache][:group] %>"
 LOG="<%= node[:tilestache][:gunicorn][:logdir] %>/<%= node[:tilestache][:gunicorn][:logfile] %>"
 CFG="<%= node[:tilestache][:gunicorn][:cfgbasedir] %>/gunicorn.cfg"
 BIN="/usr/local/bin/gunicorn"
-APP="tilestache:app"
+APP="TileStache:WSGITileServer('<%= node[:tilestache][:cfg_path] %>/tilestache.cfg')"
 
 if [ ! -d $PIDDIR ]
 then

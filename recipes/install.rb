@@ -12,7 +12,7 @@ include_recipe 'tilestache::gunicorn'
 
 python_pip 'tilestache' do
   action :install
-  version "#{node[:tilestache][:tilestache][:version]}"
+  version "#{node[:tilestache][:version]}"
 end
 
 #bash 'tilestache_setup_py' do
