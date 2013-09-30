@@ -25,7 +25,6 @@ directory "#{node[:tilestache][:install_path]}" do
 end
 
 directories = [
-  "#{node[:tilestache][:build_path]}",
   "#{node[:tilestache][:cfg_path]}",
   "#{node[:tilestache][:gunicorn][:logdir]}",
   "#{node[:tilestache][:gunicorn][:piddir]}"

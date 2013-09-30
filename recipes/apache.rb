@@ -1,4 +1,11 @@
-# reverse proxy, if defined
+#
+# Cookbook Name:: tilestache
+# Recipe:: apache
+#
+# Copyright 2013, Mapzen
+#
+# All rights reserved - Do Not Redistribute
+#
 
 case node[:tilestache][:apache_proxy]
 when 'true'
