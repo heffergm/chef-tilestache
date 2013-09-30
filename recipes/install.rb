@@ -15,11 +15,12 @@ python_pip 'tilestache' do
   version "#{node[:tilestache][:version]}"
 end
 
-template "#{node[:tilestach][:cfg_path]}/tilestache.cfg" do
+template "#{node[:tilestache][:cfg_path]}/tilestache.cfg" do
   source 'tilestache.cfg.erb'
   owner 'root'
   group 'root'
   mode 0644
+  notifies :restart, 'service[tilestache]', :delayed
 end
 
 include_recipe 'tilestache::apache'

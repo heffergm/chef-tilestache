@@ -15,7 +15,6 @@ end
 
 %w(
   git
-  tilestache::hacks
   tilestache::groundwork
   python::package
   python::pip
